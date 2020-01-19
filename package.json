@@ -2,7 +2,7 @@
   "name": "ykit",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --no-ci",
     "bundle": "ts-node -P scripts/tsconfig.json scripts/bundle.ts umd,esm",
     "clean": "lerna clean --yes && lerna run clean",
     "release": "yarn bootstrap && yarn bundle && lerna publish --exact",

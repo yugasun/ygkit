@@ -1,0 +1,33 @@
+{
+  "name": "@node-utils/request",
+  "version": "0.0.1",
+  "description": "Node utils",
+  "main": "dist/index.js",
+  "node": "dist/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf ./dist tsconfig.tsbuildinfo"
+  },
+  "keywords": [
+    "node-utils",
+    "request"
+  ],
+  "author": "yugasun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugasun/node-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yugasun/node-utils/issues"
+  },
+  "homepage": "https://github.com/yugasun/node-utils#readme"
+}

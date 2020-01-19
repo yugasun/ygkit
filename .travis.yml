@@ -12,4 +12,6 @@ cache:
 install:
   - npm install
 scripts:
+  - npm run bootstrap
   - npm run coveralls
+  - npm run bundle

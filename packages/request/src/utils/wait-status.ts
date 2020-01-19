@@ -7,6 +7,8 @@ interface WaitStatusOptions {
   targetStatus: any;
   // timeout mini seconds
   timeout: number;
+  // loop gap in mini seconds
+  loopGap?: number;
   // start mini seconds
   start?: number;
   // promise resolve
@@ -22,6 +24,7 @@ async function waitStatus({
   targetStatus,
   // timeout mini seconds
   timeout,
+  loopGap = 1000,
   // start mini seconds
   start = Date.now(),
   // promise resolve
@@ -43,7 +46,7 @@ async function waitStatus({
       if (detail[statusProp] === targetStatus) {
         resolve(detail);
       } else {
-        await sleep(1000);
+        await sleep(loopGap);
         return waitStatus({
           callback,
           statusProp,

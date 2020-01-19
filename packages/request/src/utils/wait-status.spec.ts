@@ -24,7 +24,30 @@ const callback = () => {
   });
 };
 
+const callbackError = () => {
+  return new Promise((resolve, reject) => {
+    const t2 = Date.now();
+    const diffSecs = Math.round((t2 - t1) / 1000);
+    setTimeout(() => {
+      reject(new Error('Request Error'));
+    }, 500);
+  });
+};
+
 test('[default] should get target status', async () => {
+  const res = await waitStatus({
+    callback,
+    targetStatus: 4,
+    timeout: 5000,
+  });
+  expect(res).toEqual({
+    status: 4,
+    otherStatus: 4,
+    name: '@ygkit/request',
+  });
+});
+
+test('[statusProp = status] should get target status', async () => {
   const res = await waitStatus({
     callback,
     statusProp: 'status',
@@ -38,7 +61,7 @@ test('[default] should get target status', async () => {
   });
 });
 
-test('[statusProp] should get target status', async () => {
+test('[statusProp = otherStatus] should get target status', async () => {
   const res = await waitStatus({
     callback,
     statusProp: 'otherStatus',
@@ -94,7 +117,17 @@ test('[start past 2 seconds] should reject timeout', async () => {
   ).rejects.toMatch('Request Timeout.');
 });
 
-test('should reject timeout', async () => {
+test('[default] should reject timeout', async () => {
+  expect(
+    waitStatus({
+      callback,
+      targetStatus: 4,
+      timeout: 1000,
+    }),
+  ).rejects.toMatch('Request Timeout.');
+});
+
+test('[statusProp = status] should reject timeout', async () => {
   expect(
     waitStatus({
       callback,
@@ -103,4 +136,15 @@ test('should reject timeout', async () => {
       timeout: 1000,
     }),
   ).rejects.toMatch('Request Timeout.');
+});
+
+test('should get request error', async () => {
+  expect(
+    waitStatus({
+      callback: callbackError,
+      statusProp: 'status',
+      targetStatus: 4,
+      timeout: 5000,
+    }),
+  ).rejects.toMatch('Request Error');
 });

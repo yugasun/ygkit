@@ -2,7 +2,7 @@ import { sleep } from './sleep';
 
 interface WaitStatusOptions {
   callback: Function;
-  statusProp: string;
+  statusProp?: string;
   // wait status
   targetStatus: any;
   // timeout mini seconds

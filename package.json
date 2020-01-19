@@ -1,5 +1,5 @@
 {
-  "name": "node-utils",
+  "name": "ygkit",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -8,7 +8,7 @@
     "release": "yarn bootstrap && yarn bundle && lerna publish --exact",
     "prettier": "prettier --check '**/*.{ts,tsx,md}' --config .prettierrc",
     "prettier:fix": "prettier --write '**/*.{ts,tsx,md}' --config .prettierrc",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest"
   },
   "workspaces": [
     "packages/*"

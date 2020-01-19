@@ -13,7 +13,7 @@ export default {
     .filter((p) => fs.lstatSync(path.join(packagesPath, p)).isDirectory())
     .map((p) => {
       const pkgName = path.basename(p);
-      const pkgGlobalName = camelcase(`node-utils-${pkgName}`);
+      const pkgGlobalName = camelcase(`ygkit-${pkgName}`);
       const pkgPath = path.join(packagesPath, p);
       const pkgSrc = path.join(pkgPath, 'src');
       const pkgScopedName = p;

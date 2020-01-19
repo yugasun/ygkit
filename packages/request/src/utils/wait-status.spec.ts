@@ -5,7 +5,7 @@ const callback = () => {
     setTimeout(() => {
       resolve({
         status: 4,
-        name: '@node-utils/request',
+        name: '@ygkit/request',
       });
     }, 2000);
   });
@@ -20,7 +20,7 @@ test('should get target status', async () => {
   });
   expect(res).toEqual({
     status: 4,
-    name: '@node-utils/request',
+    name: '@ygkit/request',
   });
 });
 

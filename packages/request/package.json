@@ -1,5 +1,5 @@
 {
-  "name": "@node-utils/request",
+  "name": "@ygkit/request",
   "version": "0.0.1",
   "description": "Node utils",
   "main": "dist/index.js",
@@ -17,17 +17,17 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "keywords": [
-    "node-utils",
+    "ygkit",
     "request"
   ],
   "author": "yugasun",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yugasun/node-utils.git"
+    "url": "git+https://github.com/yugasun/ygkit.git"
   },
   "bugs": {
-    "url": "https://github.com/yugasun/node-utils/issues"
+    "url": "https://github.com/yugasun/ygkit/issues"
   },
-  "homepage": "https://github.com/yugasun/node-utils#readme"
+  "homepage": "https://github.com/yugasun/ygkit#readme"
 }

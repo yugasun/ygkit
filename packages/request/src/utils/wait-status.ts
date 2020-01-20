@@ -43,7 +43,7 @@ async function waitStatus({
       }
       const detail = await callback();
       // 4: deploying, 1: created
-      if (detail[statusProp] === targetStatus) {
+      if (detail && detail[statusProp] === targetStatus) {
         resolve(detail);
       } else {
         await sleep(loopGap);

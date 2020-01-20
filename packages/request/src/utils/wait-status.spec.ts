@@ -26,8 +26,6 @@ const callback = () => {
 
 const callbackError = () => {
   return new Promise((resolve, reject) => {
-    const t2 = Date.now();
-    const diffSecs = Math.round((t2 - t1) / 1000);
     setTimeout(() => {
       reject(new Error('Request Error'));
     }, 500);
@@ -106,45 +104,53 @@ test('[loopGap] should get target status', async () => {
 });
 
 test('[start past 2 seconds] should reject timeout', async () => {
-  expect(
-    waitStatus({
+  try {
+    await waitStatus({
       callback,
       statusProp: 'otherStatus',
       targetStatus: 4,
       timeout: 5000,
       start: Date.now() - 2000,
-    }),
-  ).rejects.toMatch('Request Timeout.');
+    });
+  } catch (e) {
+    expect(e).toMatch('Request Timeout.');
+  }
 });
 
 test('[default] should reject timeout', async () => {
-  expect(
-    waitStatus({
+  try {
+    await waitStatus({
       callback,
       targetStatus: 4,
       timeout: 1000,
-    }),
-  ).rejects.toMatch('Request Timeout.');
+    });
+  } catch (e) {
+    expect(e).toMatch('Request Timeout.');
+  }
 });
 
 test('[statusProp = status] should reject timeout', async () => {
-  expect(
-    waitStatus({
+  try {
+    await waitStatus({
       callback,
       statusProp: 'status',
       targetStatus: 4,
       timeout: 1000,
-    }),
-  ).rejects.toMatch('Request Timeout.');
+    });
+  } catch (e) {
+    expect(e).toMatch('Request Timeout.');
+  }
 });
 
 test('should get request error', async () => {
-  expect(
-    waitStatus({
+  try {
+    await waitStatus({
       callback: callbackError,
       statusProp: 'status',
       targetStatus: 4,
       timeout: 5000,
-    }),
-  ).rejects.toMatch('Request Error');
+    });
+  } catch (e) {
+    expect(e).toEqual(new Error('Request Error'));
+  }
 });

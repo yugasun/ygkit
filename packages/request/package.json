@@ -1,7 +1,7 @@
 {
   "name": "@ygkit/request",
   "version": "0.0.4",
-  "description": "Node utils",
+  "description": "Node request utils",
   "main": "dist/index.js",
   "node": "dist/index.js",
   "browser": "dist/index.js",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/yugasun/ygkit/issues"
   },
-  "homepage": "https://github.com/yugasun/ygkit#readme"
+  "homepage": "https://github.com/yugasun/ygkit#readme",
+  "dependencies": {
+    "@ygkit/object": "^0.0.0"
+  }
 }

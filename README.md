@@ -12,7 +12,7 @@ Node utils
 | Package Name     | Introduction                                   | Npm Link                                             |
 | ---------------- | ---------------------------------------------- | ---------------------------------------------------- |
 | `@ygkit/request` | [@ygkit/request](./packages/request/README.md) | [Link](https://www.npmjs.com/package/@ygkit/request) |
-| `@ygkit/object`  | [@ygkit/request](./packages/object/README.md)  | [Link](https://www.npmjs.com/package/@ygkit/object)  |
+| `@ygkit/object`  | [@ygkit/object](./packages/object/README.md)   | [Link](https://www.npmjs.com/package/@ygkit/object)  |
 
 ## License
 

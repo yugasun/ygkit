@@ -21,7 +21,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx,md}": [
-      "prettier -c"
+      "npm run prettier:fix",
+      "git add ."
     ]
   },
   "devDependencies": {

@@ -10,8 +10,8 @@ cache:
   directories:
     - node_modules
 install:
-  - npm install
+  - npm install lerna -g
+  - npm run bootstrap
 script:
-  - npm run bootstrap --no-ci
   - npm run coveralls
   - npm run bundle

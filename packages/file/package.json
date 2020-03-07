@@ -1,0 +1,42 @@
+{
+  "name": "@ygkit/file",
+  "version": "0.0.0",
+  "description": "Node file utils",
+  "main": "dist/index.js",
+  "node": "dist/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf ./dist tsconfig.tsbuildinfo"
+  },
+  "keywords": [
+    "ygkit",
+    "object"
+  ],
+  "author": "yugasun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugasun/ygkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yugasun/ygkit/issues"
+  },
+  "homepage": "https://github.com/yugasun/ygkit#readme",
+  "dependencies": {
+    "archiver": "^3.1.1",
+    "fs-extra": "^8.1.0",
+    "globby": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^3.1.0",
+    "@types/fs-extra": "^8.1.0"
+  }
+}

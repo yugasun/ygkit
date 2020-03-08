@@ -2,7 +2,7 @@ interface InputObject {
   [propName: string]: any;
 }
 
-function getProp(obj: InputObject, prop: string | undefined): any {
+function getProp(obj: InputObject | null, prop?: string): any {
   if (!prop) {
     return obj;
   }

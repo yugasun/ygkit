@@ -10,6 +10,9 @@ describe('@ygkit/object [getProp]', () => {
   };
 
   test('should get right prop value', async () => {
+    expect(getProp(null, 'a')).toEqual(null);
+    expect(getProp(null)).toEqual(null);
+    expect(getProp(obj)).toEqual(obj);
     expect(getProp(obj, 'a')).toBe(1);
     expect(getProp(obj, 'b')).toBe(2);
     expect(getProp(obj, 'foo')).toBe(undefined);

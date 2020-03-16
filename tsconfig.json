@@ -3,6 +3,7 @@
   "references": [
     { "path": "packages/object" },
     { "path": "packages/request" },
-    { "path": "packages/file" }
+    { "path": "packages/file" },
+    { "path": "packages/bundler" }
   ]
 }

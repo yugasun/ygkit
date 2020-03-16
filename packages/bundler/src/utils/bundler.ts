@@ -1,7 +1,7 @@
 import { homedir } from 'os';
 import { join, dirname } from 'path';
 import { ensureDir, writeFile } from 'fs-extra';
-const Terser = require('terser');
+import { minify } from 'terser';
 const Webmake = require('webmake');
 
 interface CacheOption {
@@ -42,7 +42,7 @@ async function bundler(options: BundlerOption): Promise<BundlerOutput> {
     ),
   );
   if (options.mode !== 'dev') {
-    const minifyResult = Terser.minify(bundleCode as string);
+    const minifyResult = minify(bundleCode as string);
     if (minifyResult.error) {
       throw minifyResult.error;
     }

@@ -32,6 +32,7 @@
   "homepage": "https://github.com/yugasun/ygkit#readme",
   "dependencies": {
     "fs-extra": "^8.1.0",
+    "terser": "^4.6.6",
     "webmake": "^1.1.0"
   }
 }

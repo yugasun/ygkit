@@ -1,7 +1,7 @@
 import { homedir } from 'os';
 import { join, dirname } from 'path';
 import { ensureDir, writeFile } from 'fs-extra';
-import * as Terser from 'terser';
+const Terser = require('terser');
 const Webmake = require('webmake');
 
 interface CacheOption {

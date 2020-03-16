@@ -66,6 +66,7 @@ async function bundler(options: BundlerOption): Promise<BundlerOutput> {
     output.cacheFile = cacheFilename;
   }
   if (options.output) {
+    await ensureDir(dirname(options.output));
     await writeFile(options.output, bundleCode);
     output.outputFile = options.output;
   }

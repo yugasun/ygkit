@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/request",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Node request utils",
   "main": "dist/index.js",
   "node": "dist/index.js",
@@ -31,6 +31,6 @@
   },
   "homepage": "https://github.com/yugasun/ygkit#readme",
   "dependencies": {
-    "@ygkit/object": "0.0.1"
+    "@ygkit/object": "0.0.2"
   }
 }

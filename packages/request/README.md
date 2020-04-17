@@ -7,10 +7,10 @@ Node request utils.
 
 ## Functions
 
-| Name       | Description                                       |
-| ---------- | ------------------------------------------------- |
-| sleep      | Sleep for target miniseconds.                     |
-| waitStatus | Hadle async request, until getting target status. |
+| Name         | Description                                         |
+| ------------ | --------------------------------------------------- |
+| sleep        | Sleep for target miniseconds.                       |
+| waitResponse | Hadle async request, until getting target response. |
 
 ## License
 

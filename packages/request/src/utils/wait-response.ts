@@ -2,8 +2,11 @@ import { getProp } from '@ygkit/object';
 import { sleep } from './sleep';
 
 interface WaitResponseOptions {
+  // async request
   callback: Function;
-  targetResponse: any;
+  // target response
+  targetResponse?: any;
+  // target response property
   targetProp?: string;
   // timeout mini seconds
   timeout: number;

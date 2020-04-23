@@ -69,4 +69,16 @@ describe('@ygkit/file [hash]', () => {
       zipDirectory(inputDirPath, outputPath.replace('zip', 'gz')),
     ).rejects.toEqual(new Error(`Unsupport format gz. Either "zip" or "tar"`));
   });
+
+  test('[disableTraverse = true] should generate zip file', async () => {
+    await zipDirectory(inputDirPath, outputPath, [], [], true);
+    const exist = existsSync(outputPath);
+    expect(exist).toBe(true);
+  });
+
+  test('[disableTraverse = false] should generate zip file', async () => {
+    await zipDirectory(inputDirPath, outputPath, [], [], false);
+    const exist = existsSync(outputPath);
+    expect(exist).toBe(true);
+  });
 });

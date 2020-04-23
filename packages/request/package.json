@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/request",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Node request utils",
   "main": "dist/index.js",
   "node": "dist/index.js",

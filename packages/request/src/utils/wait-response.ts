@@ -4,7 +4,7 @@ import { sleep } from './sleep';
 interface WaitResponseOptions {
   // async request
   callback: Function;
-  // target response
+  // target response/property value
   targetResponse?: any;
   // target response property
   targetProp?: string;
@@ -23,16 +23,11 @@ interface WaitResponseOptions {
 async function waitResponse({
   callback,
   targetProp,
-  // wait status
   targetResponse,
-  // timeout mini seconds
   timeout,
   loopGap = 1000,
-  // start mini seconds
   start = Date.now(),
-  // promise resolve
   resolve,
-  // promise reject
   reject,
 }: WaitResponseOptions): Promise<any> {
   const now = Date.now();
@@ -45,12 +40,9 @@ async function waitResponse({
         reject(new Error('Request Timeout'));
       }
       const response = await callback();
-      if (targetResponse) {
-        if (!targetProp) {
-          reject(new Error('Unknow target response property'));
-        }
-        const prop = getProp(response, targetProp);
-        if (response && prop === targetResponse) {
+      if (targetProp) {
+        const propVal = getProp(response, targetProp);
+        if (response && propVal === targetResponse) {
           resolve(response);
         } else {
           await sleep(loopGap);

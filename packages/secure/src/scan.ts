@@ -1,5 +1,5 @@
 import { spawnSync } from 'child_process';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import ora from 'ora';
 
 const REGEX_AK = new RegExp(
@@ -30,9 +30,11 @@ function scan(cwd = process.cwd(), reg = REGEX_AK) {
     spinner.fail(
       chalk.red(`Sensitive info check failed! Please remove sensitive info!`),
     );
+    process.exitCode = 1;
     return false;
   } else {
     spinner.succeed(chalk.green('Sensitive info check pass'));
+    process.exitCode = 0;
     return true;
   }
 }

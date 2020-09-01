@@ -1,0 +1,40 @@
+{
+  "name": "@ygkit/secure",
+  "version": "0.0.0",
+  "description": "Node secure scan tool",
+  "main": "dist/index.js",
+  "node": "dist/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "ygsec": "./bin/ygsec.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf ./dist tsconfig.tsbuildinfo"
+  },
+  "keywords": [
+    "ygkit",
+    "object"
+  ],
+  "author": "yugasun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugasun/ygkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yugasun/ygkit/issues"
+  },
+  "homepage": "https://github.com/yugasun/ygkit#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ora": "^5.0.0"
+  }
+}

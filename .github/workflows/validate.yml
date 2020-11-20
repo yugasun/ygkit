@@ -39,6 +39,6 @@ jobs:
         if: steps.cacheNpm.outputs.cache-hit != 'true'
         run: |
           npm install
-          npm run boostrap
+          npm run bootstrap
       - name: Validate Formatting
         run: npm run prettier:fix

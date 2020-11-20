@@ -38,7 +38,7 @@ jobs:
         if: steps.cacheNpm.outputs.cache-hit != 'true'
         run: |
           npm install
-          npm run boostrap
+          npm run bootstrap
       - name: Running tests
         run: npm run test
       - name: Running coveralls

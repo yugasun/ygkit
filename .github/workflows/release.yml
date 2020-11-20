@@ -36,7 +36,7 @@ jobs:
         if: steps.cacheNpm.outputs.cache-hit != 'true'
         run: |
           npm install
-          npm run boostrap
+          npm run bootstrap
       - name: Releasing
         run: |
           npm run build

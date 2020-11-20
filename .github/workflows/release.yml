@@ -36,7 +36,11 @@ jobs:
         if: steps.cacheNpm.outputs.cache-hit != 'true'
         run: |
           npm install
+      - name: Bootstrap project
+        run: |
           npm run bootstrap
+      - name: Running codecov
+        run: npm run codecov
       - name: Releasing
         run: |
           npm run build

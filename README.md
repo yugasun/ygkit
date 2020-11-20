@@ -1,8 +1,8 @@
 # [ygkit](https://github.com/yugasun/ygkit)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yugasun/ygkit/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/yugasun/ygkit.svg?branch=master)](https://travis-ci.org/yugasun/ygkit)
-[![Coveralls](https://img.shields.io/coveralls/yugasun/ygkit.svg)](https://coveralls.io/github/yugasun/ygkit)
+[![Build Status](https://github.com/yugasun/ygkit/workflows/Release/badge.svg?branch=master)](https://github.com/yugasun/ygkit/actions?query=workflow:Release+branch:master)
+[![Codecov](https://img.shields.io/codecov/c/github/yugasun/ygkit/coverage.svg?style=flat-square)](https://codecov.io/gh/yugasun/ygkit/)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/yugasun/ygkit.svg)](http://isitmaintained.com/project/yugasun/ygkit 'Percentage of issues still open')
 
 Node utils

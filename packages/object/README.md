@@ -7,9 +7,11 @@ Node object utils.
 
 ## Functions
 
-| Name    | Description             |
-| ------- | ----------------------- |
-| getProp | Get property in object. |
+| Name      | Description                  |
+| --------- | ---------------------------- |
+| getProp   | Get property in object.      |
+| typeOf    | Get real type of a variable. |
+| deepClone | Deep clone an object.        |
 
 ## License
 

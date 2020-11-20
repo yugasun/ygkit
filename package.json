@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --no-ci && lerna exec 'npm install --no-package-lock'",
-    "bundle": "ts-node -P scripts/tsconfig.json scripts/bundle.ts umd,esm",
+    "build": "ts-node -P scripts/tsconfig.json scripts/bundle.ts umd,esm",
     "clean": "lerna clean --yes && lerna run clean",
     "release": "lerna publish --exact",
     "prettier": "prettier --check '**/*.{ts,tsx,md}' --config .prettierrc",

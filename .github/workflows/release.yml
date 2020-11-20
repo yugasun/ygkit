@@ -48,6 +48,8 @@ jobs:
           npm run build
           npm run release
         env:
+          USER_NAME: yugasun
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_AUTHOR_NAME: yugasun

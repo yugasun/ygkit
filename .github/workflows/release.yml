@@ -41,10 +41,12 @@ jobs:
           npm run bootstrap
       - name: Running codecov
         run: npm run codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Releasing
         run: |
           npm run build
-          npm run release --yes
+          npm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

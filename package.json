@@ -5,13 +5,12 @@
     "bootstrap": "lerna bootstrap --no-ci && lerna exec 'npm install --no-package-lock'",
     "build": "ts-node -P scripts/tsconfig.json scripts/bundle.ts umd,esm",
     "clean": "lerna clean --yes && lerna run clean",
-    "release": "lerna publish --exact --yes",
+    "release": "lerna publish --yes",
     "release:local": "lerna publish --exact",
     "prettier": "prettier --check '**/*.{ts,tsx,md}' --config .prettierrc",
     "prettier:fix": "prettier --write '**/*.{ts,tsx,md}' --config .prettierrc",
     "test": "jest",
-    "codecov-local": "jest --coverage --coverageReporters=text-lcov",
-    "codecov": "jest --coverage --coverageReporters=text-lcov | codecov"
+    "codecov": "jest --coverage | codecov"
   },
   "workspaces": [
     "packages/*"

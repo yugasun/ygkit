@@ -20,8 +20,8 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "keywords": [
-    "ygkit",
-    "object"
+    "secure",
+    "ygkit"
   ],
   "author": "yugasun",
   "license": "MIT",

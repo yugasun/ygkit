@@ -102,7 +102,9 @@ describe('@ygkit/object [waitResponse]', () => {
           start: Date.now() - 2000,
         });
       } catch (e) {
-        expect(e).toMatch('Request Timeout');
+        expect(e).toMatch(
+          '[TIMEOUT] Cannot complete in 5000ms, otherStatus: 2',
+        );
       }
     });
 
@@ -115,7 +117,7 @@ describe('@ygkit/object [waitResponse]', () => {
           timeout: 1000,
         });
       } catch (e) {
-        expect(e).toMatch('Request Timeout');
+        expect(e).toMatch('[TIMEOUT] Cannot complete in 1000ms, status: 2');
       }
     });
 
@@ -128,7 +130,7 @@ describe('@ygkit/object [waitResponse]', () => {
           timeout: 1000,
         });
       } catch (e) {
-        expect(e).toMatch('Request Timeout');
+        expect(e).toMatch('[TIMEOUT] Cannot complete in 1000ms, status: 2');
       }
     });
 

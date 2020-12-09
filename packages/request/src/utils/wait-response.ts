@@ -35,42 +35,37 @@ async function waitResponse({
     try {
       resolve = resolve || res;
       reject = reject || rej;
-      // timeout
-      if (now - start > timeout) {
-        reject(new Error('Request Timeout'));
-      }
       const response = await callback();
       if (targetProp) {
         const propVal = getProp(response, targetProp);
         if (response && propVal === targetResponse) {
           resolve(response);
-        } else {
-          await sleep(loopGap);
-          return waitResponse({
-            callback,
-            targetProp,
-            targetResponse,
-            timeout,
-            start,
-            resolve,
-            reject,
-          });
         }
       } else {
         if (response === targetResponse) {
           resolve(response);
-        } else {
-          return waitResponse({
-            callback,
-            targetProp,
-            targetResponse,
-            timeout,
-            start,
-            resolve,
-            reject,
-          });
         }
       }
+      // timeout
+      if (now - start > timeout) {
+        const errMsg = targetProp
+          ? `[TIMEOUT] Cannot complete in ${timeout}ms, ${targetProp}: ${getProp(
+              response,
+              targetProp,
+            )}`
+          : `[TIMEOUT] Cannot complete in ${timeout}ms`;
+        reject(new Error(errMsg));
+      }
+      await sleep(loopGap);
+      return waitResponse({
+        callback,
+        targetProp,
+        targetResponse,
+        timeout,
+        start,
+        resolve,
+        reject,
+      });
     } catch (e) {
       reject && reject(e);
     }

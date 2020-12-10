@@ -36,16 +36,6 @@ async function waitResponse({
       resolve = resolve || res;
       reject = reject || rej;
       const response = await callback();
-      if (targetProp) {
-        const propVal = getProp(response, targetProp);
-        if (response && propVal === targetResponse) {
-          resolve(response);
-        }
-      } else {
-        if (response === targetResponse) {
-          resolve(response);
-        }
-      }
       // timeout
       if (now - start > timeout) {
         const errMsg = targetProp
@@ -56,16 +46,37 @@ async function waitResponse({
           : `[TIMEOUT] Cannot complete in ${timeout}ms`;
         reject(new Error(errMsg));
       }
-      await sleep(loopGap);
-      return waitResponse({
-        callback,
-        targetProp,
-        targetResponse,
-        timeout,
-        start,
-        resolve,
-        reject,
-      });
+      if (targetProp) {
+        const propVal = getProp(response, targetProp);
+        if (response && propVal === targetResponse) {
+          resolve(response);
+        } else {
+          await sleep(loopGap);
+          return waitResponse({
+            callback,
+            targetProp,
+            targetResponse,
+            timeout,
+            start,
+            resolve,
+            reject,
+          });
+        }
+      } else {
+        if (response === targetResponse) {
+          resolve(response);
+        } else {
+          return waitResponse({
+            callback,
+            targetProp,
+            targetResponse,
+            timeout,
+            start,
+            resolve,
+            reject,
+          });
+        }
+      }
     } catch (e) {
       reject && reject(e);
     }

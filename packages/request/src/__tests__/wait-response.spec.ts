@@ -1,40 +1,30 @@
 import { waitResponse } from '../utils/wait-response';
 
 describe('@ygkit/object [waitResponse]', () => {
-  const t1 = Date.now();
-
-  describe('Test valid target response', () => {
-    const callback = () => {
-      return new Promise((resolve) => {
-        const t2 = Date.now();
-        const diffSecs = Math.round((t2 - t1) / 1000);
-        setTimeout(() => {
-          if (diffSecs < 3) {
-            resolve({
-              status: 2,
-              otherStatus: 2,
-              name: '@ygkit/request',
-            });
-          } else {
-            resolve({
-              status: 4,
-              otherStatus: 4,
-              name: '@ygkit/request',
-            });
-          }
-        }, 500);
-      });
-    };
-
-    const callbackError = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          reject(new Error('Request Error'));
-        }, 500);
-      });
-    };
-
-    test('[targetProp = status] should get target response', async () => {
+  const callback = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          status: 4,
+          otherStatus: 4,
+          name: '@ygkit/request',
+        });
+      }, 500);
+    });
+  };
+  const callback1 = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          status: 2,
+          otherStatus: 2,
+          name: '@ygkit/request',
+        });
+      }, 500);
+    });
+  };
+  describe('[targetProp = status]', () => {
+    test(' should get target response', async () => {
       const res = await waitResponse({
         callback,
         targetProp: 'status',
@@ -47,8 +37,10 @@ describe('@ygkit/object [waitResponse]', () => {
         name: '@ygkit/request',
       });
     });
+  });
 
-    test('[targetProp = otherStatus] should get target response', async () => {
+  describe('[targetProp = otherStatus]', () => {
+    test('should get target response', async () => {
       const res = await waitResponse({
         callback,
         targetProp: 'otherStatus',
@@ -61,8 +53,9 @@ describe('@ygkit/object [waitResponse]', () => {
         name: '@ygkit/request',
       });
     });
-
-    test('[start] should get target response', async () => {
+  });
+  describe('[start]', () => {
+    test('should get target response', async () => {
       const res = await waitResponse({
         callback,
         targetProp: 'otherStatus',
@@ -76,8 +69,9 @@ describe('@ygkit/object [waitResponse]', () => {
         name: '@ygkit/request',
       });
     });
-
-    test('[loopGap] should get target response', async () => {
+  });
+  describe('[loopGap]', () => {
+    test('should get target response', async () => {
       const res = await waitResponse({
         callback,
         targetProp: 'otherStatus',
@@ -91,49 +85,64 @@ describe('@ygkit/object [waitResponse]', () => {
         name: '@ygkit/request',
       });
     });
-
-    test('[start past 2 seconds] should reject timeout', async () => {
+  });
+  describe('[start past 2 seconds]', () => {
+    test('should reject timeout', async () => {
       try {
         await waitResponse({
-          callback,
+          callback: callback1,
           targetProp: 'otherStatus',
           targetResponse: 4,
           timeout: 5000,
           start: Date.now() - 2000,
         });
       } catch (e) {
-        expect(e).toMatch(
+        expect(e.message).toEqual(
           '[TIMEOUT] Cannot complete in 5000ms, otherStatus: 2',
         );
       }
     });
-
-    test('[default] should reject timeout', async () => {
+  });
+  describe('[default]', () => {
+    test('should reject timeout', async () => {
       try {
         await waitResponse({
-          callback,
+          callback: callback1,
           targetProp: 'status',
           targetResponse: 4,
           timeout: 1000,
         });
       } catch (e) {
-        expect(e).toMatch('[TIMEOUT] Cannot complete in 1000ms, status: 2');
+        expect(e.message).toEqual(
+          '[TIMEOUT] Cannot complete in 1000ms, status: 2',
+        );
       }
     });
-
-    test('[targetProp = status] should reject timeout', async () => {
+  });
+  describe('[targetProp = status]', () => {
+    test('should reject timeout', async () => {
       try {
         await waitResponse({
-          callback,
+          callback: callback1,
           targetProp: 'status',
           targetResponse: 4,
           timeout: 1000,
         });
       } catch (e) {
-        expect(e).toMatch('[TIMEOUT] Cannot complete in 1000ms, status: 2');
+        expect(e.message).toEqual(
+          '[TIMEOUT] Cannot complete in 1000ms, status: 2',
+        );
       }
     });
-
+  });
+  describe('[callbackError]', () => {
+    const callbackError = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(new Error('Request Error'));
+        }, 500);
+      });
+    };
     test('should get request error', async () => {
       try {
         await waitResponse({
@@ -143,7 +152,7 @@ describe('@ygkit/object [waitResponse]', () => {
           timeout: 5000,
         });
       } catch (e) {
-        expect(e).toEqual(new Error('Request Error'));
+        expect(e.message).toEqual('Request Error');
       }
     });
   });
@@ -151,18 +160,8 @@ describe('@ygkit/object [waitResponse]', () => {
   describe('Test null target response', () => {
     const callback = () => {
       return new Promise((resolve) => {
-        const t2 = Date.now();
-        const diffSecs = Math.round((t2 - t1) / 1000);
         setTimeout(() => {
-          if (diffSecs < 3) {
-            resolve({
-              status: 2,
-              otherStatus: 2,
-              name: '@ygkit/request',
-            });
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }, 500);
       });
     };

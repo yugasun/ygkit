@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   roots: [
     '<rootDir>/packages/object/src',
     '<rootDir>/packages/request/src',

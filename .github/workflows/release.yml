@@ -3,7 +3,12 @@ name: Release
 on:
   push:
     branches: [ master ]
-    paths: [ 'packages/**' ]
+    paths:
+      - 'packages/bundler/src/**'
+      - 'packages/file/src/**'
+      - 'packages/object/src/**'
+      - 'packages/reqeust/src/**'
+      - 'packages/secure/src/**'
 
 jobs:
   release:

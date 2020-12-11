@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/object",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Node object utils",
   "main": "dist/index.js",
   "node": "dist/index.js",

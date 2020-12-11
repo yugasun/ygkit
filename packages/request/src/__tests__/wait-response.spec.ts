@@ -135,6 +135,46 @@ describe('@ygkit/object [waitResponse]', () => {
       }
     });
   });
+  describe('[failResponse array]', () => {
+    test('should get fail response', async () => {
+      try {
+        await waitResponse({
+          callback: callback1,
+          targetProp: 'status',
+          targetResponse: 4,
+          failResponse: [2],
+          timeout: 5000,
+        });
+      } catch (e) {
+        expect(e.message).toEqual('[FAIL] Request fail');
+        expect(e.response).toEqual({
+          status: 2,
+          otherStatus: 2,
+          name: '@ygkit/request',
+        });
+      }
+    });
+  });
+  describe('[failResponse base type]', () => {
+    test('should get fail response', async () => {
+      try {
+        await waitResponse({
+          callback: callback1,
+          targetProp: 'status',
+          targetResponse: 4,
+          failResponse: 2,
+          timeout: 5000,
+        });
+      } catch (e) {
+        expect(e.message).toEqual('[FAIL] Request fail');
+        expect(e.response).toEqual({
+          status: 2,
+          otherStatus: 2,
+          name: '@ygkit/request',
+        });
+      }
+    });
+  });
   describe('[callbackError]', () => {
     const callbackError = () => {
       return new Promise((resolve, reject) => {

@@ -1,11 +1,17 @@
-import { getProp } from '@ygkit/object';
+import { getProp, typeOf } from '@ygkit/object';
 import { sleep } from './sleep';
+
+interface TimeoutError extends Error {
+  response?: any;
+}
 
 interface WaitResponseOptions {
   // async request
   callback: Function;
   // target response/property value
   targetResponse?: any;
+  // fail response/property value
+  failResponse?: any;
   // target response property
   targetProp?: string;
   // timeout mini seconds
@@ -24,6 +30,7 @@ async function waitResponse({
   callback,
   targetProp,
   targetResponse,
+  failResponse,
   timeout,
   loopGap = 1000,
   start = Date.now(),
@@ -44,24 +51,40 @@ async function waitResponse({
               targetProp,
             )}`
           : `[TIMEOUT] Cannot complete in ${timeout}ms`;
-        reject(new Error(errMsg));
+        const err: TimeoutError = new Error(errMsg);
+        err.response = response;
+        reject(err);
       }
       if (targetProp) {
-        const propVal = getProp(response, targetProp);
-        if (response && propVal === targetResponse) {
-          resolve(response);
-        } else {
-          await sleep(loopGap);
-          return waitResponse({
-            callback,
-            targetProp,
-            targetResponse,
-            timeout,
-            start,
-            resolve,
-            reject,
-          });
+        if (response) {
+          const propVal = getProp(response, targetProp);
+          if (propVal === targetResponse) {
+            resolve(response);
+            return;
+          } else if (failResponse) {
+            if (
+              (typeOf(failResponse) === 'Array' &&
+                failResponse.indexOf(propVal) !== -1) ||
+              propVal === failResponse
+            ) {
+              const errMsg = `[FAIL] Request fail`;
+              const err: TimeoutError = new Error(errMsg);
+              err.response = response;
+              reject(err);
+              return;
+            }
+          }
         }
+        await sleep(loopGap);
+        return waitResponse({
+          callback,
+          targetProp,
+          targetResponse,
+          timeout,
+          start,
+          resolve,
+          reject,
+        });
       } else {
         if (response === targetResponse) {
           resolve(response);

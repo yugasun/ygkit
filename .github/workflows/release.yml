@@ -8,12 +8,11 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
+          ref: ${{ github.head_ref }}
           persist-credentials: false
 
       - name: Install Node.js and npm
@@ -43,15 +42,25 @@ jobs:
         run: npm run codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Configure CI Git User
+        run: |
+          git remote rm origin
+          git remote add origin "https://$USER_NAME:$GH_TOKEN@github.com/$USER_NAME/ygkit.git"
+          git fetch
+          git config --global user.email octobot@github.com
+          git config --global user.name GitHub Actions
+        env:
+          USER_NAME: yugasun
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Releasing
         run: |
           npm run build
-          npm run release
+          npm run release:ci
         env:
           USER_NAME: yugasun
-          GITHUB_PAT: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_AUTHOR_NAME: yugasun
           GIT_AUTHOR_EMAIL: yugasun.bj@gmail.com
           GIT_COMMITTER_NAME: yugasun

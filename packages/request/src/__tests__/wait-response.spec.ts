@@ -92,11 +92,11 @@ describe('@ygkit/object [waitResponse]', () => {
           callback: callback1,
           targetProp: 'status',
           targetResponse: 4,
-          timeout: 1000,
+          timeout: 5000,
         });
       } catch (e) {
         expect(e.message).toEqual(
-          '[TIMEOUT] Cannot complete in 1000ms, status: 2',
+          '[TIMEOUT] Cannot complete in 5000ms, status: 2',
         );
       }
     });
@@ -108,11 +108,11 @@ describe('@ygkit/object [waitResponse]', () => {
           callback: callback1,
           targetProp: 'status',
           targetResponse: 4,
-          timeout: 1000,
+          timeout: 5000,
         });
       } catch (e) {
         expect(e.message).toEqual(
-          '[TIMEOUT] Cannot complete in 1000ms, status: 2',
+          '[TIMEOUT] Cannot complete in 5000ms, status: 2',
         );
       }
     });

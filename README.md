@@ -1,7 +1,7 @@
 # [ygkit](https://github.com/yugasun/ygkit)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yugasun/ygkit/blob/master/LICENSE)
-[![Build Status](https://github.com/yugasun/ygkit/workflows/Release/badge.svg?branch=master)](https://github.com/yugasun/ygkit/actions?query=workflow:Release+branch:master)
+[![Build Status](https://github.com/yugasun/ygkit/workflows/Test/badge.svg)](https://github.com/yugasun/ygkit/actions?query=workflow:Test)
 [![Codecov](https://img.shields.io/codecov/c/github/yugasun/ygkit/coverage.svg?style=flat-square)](https://codecov.io/gh/yugasun/ygkit/)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/yugasun/ygkit.svg)](http://isitmaintained.com/project/yugasun/ygkit 'Percentage of issues still open')
 

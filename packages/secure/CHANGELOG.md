@@ -13,7 +13,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.0.6 (2020-12-11)
 
-
 ### Bug Fixes
 
-* **request:** support fail response config ([fdc61c4](https://github.com/yugasun/ygkit/commit/fdc61c4ca20b1ee5d294120cb1078af337f6643f))
+- **request:** support fail response config ([fdc61c4](https://github.com/yugasun/ygkit/commit/fdc61c4ca20b1ee5d294120cb1078af337f6643f))

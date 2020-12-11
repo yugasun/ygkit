@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/secure",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Node secure scan tool",
   "main": "dist/index.js",
   "node": "dist/index.js",

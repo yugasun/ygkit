@@ -1,0 +1,43 @@
+name: Codecov
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  codecov:
+    name: Codecov
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org
+
+      - name: Retrieve dependencies from cache
+        id: cacheNpm
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: npm-v14-${{ runner.os }}-refs/heads/master-${{ hashFiles('package.json') }}
+          restore-keys: npm-v14-${{ runner.os }}-refs/heads/master-
+
+      - name: Install dependencies
+        if: steps.cacheNpm.outputs.cache-hit != 'true'
+        run: |
+          npm install
+      - name: Bootstrap project
+        run: |
+          npm run bootstrap
+      - name: Running codecov
+        run: npm run codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

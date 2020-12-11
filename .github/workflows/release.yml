@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    paths:
-      - 'packages/**'
+    branches: [ master ]
+    paths: [ 'packages/**' ]
 
 jobs:
   release:
@@ -39,10 +39,6 @@ jobs:
       - name: Bootstrap project
         run: |
           npm run bootstrap
-      - name: Running codecov
-        run: npm run codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Configure CI Git User
         run: |
           git remote rm origin

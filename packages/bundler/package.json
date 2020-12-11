@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/bundler",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Node util for bundling node modules",
   "main": "dist/index.js",
   "node": "dist/index.js",

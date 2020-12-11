@@ -7,6 +7,7 @@ module.exports = {
     '<rootDir>/packages/bundler/src',
     '<rootDir>/packages/secure/src',
   ],
+  testTimeout: 60000,
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },

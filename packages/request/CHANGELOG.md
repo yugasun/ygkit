@@ -7,17 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ygkit/request
 
-
-
-
-
 ## 0.1.6 (2020-12-11)
 
 **Note:** Version bump only for package @ygkit/request
-
-
-
-
 
 ## 0.1.5 (2020-12-11)
 

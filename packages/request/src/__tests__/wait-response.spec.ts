@@ -24,7 +24,7 @@ describe('@ygkit/object [waitResponse]', () => {
     });
   };
   describe('[targetProp = status]', () => {
-    test(' should get target response', async () => {
+    test('should get target response', async () => {
       const res = await waitResponse({
         callback,
         targetProp: 'status',
@@ -61,7 +61,6 @@ describe('@ygkit/object [waitResponse]', () => {
         targetProp: 'otherStatus',
         targetResponse: 4,
         timeout: 5000,
-        start: Date.now() + 500,
       });
       expect(res).toEqual({
         status: 4,
@@ -84,23 +83,6 @@ describe('@ygkit/object [waitResponse]', () => {
         otherStatus: 4,
         name: '@ygkit/request',
       });
-    });
-  });
-  describe('[start past 2 seconds]', () => {
-    test('should reject timeout', async () => {
-      try {
-        await waitResponse({
-          callback: callback1,
-          targetProp: 'otherStatus',
-          targetResponse: 4,
-          timeout: 5000,
-          start: Date.now() - 2000,
-        });
-      } catch (e) {
-        expect(e.message).toEqual(
-          '[TIMEOUT] Cannot complete in 5000ms, otherStatus: 2',
-        );
-      }
     });
   });
   describe('[default]', () => {

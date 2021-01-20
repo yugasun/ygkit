@@ -1,6 +1,6 @@
 {
   "name": "@ygkit/password",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node password tool",
   "main": "dist/index.js",
   "node": "dist/index.js",

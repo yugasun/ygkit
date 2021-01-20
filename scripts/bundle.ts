@@ -75,7 +75,7 @@ async function bundle() {
           file: pkg.esm,
           name: pkg.globalName,
           format: 'esm',
-          sourcemap: true,
+          sourcemap: false,
         });
       }
 
@@ -100,7 +100,7 @@ async function bundle() {
             tslib: 'tslib',
           },
           format: 'umd',
-          sourcemap: true,
+          sourcemap: false,
         });
       }
     }

@@ -7,9 +7,12 @@ Node password tool.
 
 ## Functions
 
-| Name     | Description        |
-| -------- | ------------------ |
-| generate | Generate password. |
+| Name              | Description              |
+| ----------------- | ------------------------ |
+| run               | Run cli command          |
+| generateStrongPwd | generate strong password |
+| generateMiddlePwd | generate middle password |
+| generateSimplePwd | generate simple password |
 
 ## Install
 
@@ -29,9 +32,9 @@ $ yp -t h -l 8
 
 support type:
 
-> **h** - Strong password, with alphabet(include upper case), number and special characters.
-> **m** - Middle password, with alphabet(include upper case) and number
-> **l** - Middle password, with alphabet(exclue upper case) and number
+> **h** - Strong password, with alphabet(include upper case), number and special characters.  
+> **m** - Middle password, with alphabet(include upper case) and number  
+> **l** - Middle password, with alphabet(exclue upper case) and number  
 > **n** - Number password, only with number
 
 ## License

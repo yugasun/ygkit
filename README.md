@@ -9,14 +9,14 @@ Node utils
 
 ## Packages
 
-| Package Name      | Introduction                                   | Npm Link                                              |
-| ----------------- | ---------------------------------------------- | ----------------------------------------------------- |
-| `@ygkit/request`  | [@ygkit/request](./packages/request/README.md) | [Link](https://www.npmjs.com/package/@ygkit/request)  |
-| `@ygkit/object`   | [@ygkit/object](./packages/object/README.md)   | [Link](https://www.npmjs.com/package/@ygkit/object)   |
-| `@ygkit/file`     | [@ygkit/file](./packages/file/README.md)       | [Link](https://www.npmjs.com/package/@ygkit/file)     |
-| `@ygkit/bundler`  | [@ygkit/bundler](./packages/bundler/README.md) | [Link](https://www.npmjs.com/package/@ygkit/bundler)  |
-| `@ygkit/secure`   | [@ygkit/secure](./packages/secure/README.md)   | [Link](https://www.npmjs.com/package/@ygkit/secure)   |
-| `@ygkit/password` | [@ygkit/secure](./packages/password/README.md) | [Link](https://www.npmjs.com/package/@ygkit/password) |
+| Package Name      | Introduction                                     | Npm Link                                              |
+| ----------------- | ------------------------------------------------ | ----------------------------------------------------- |
+| `@ygkit/request`  | [@ygkit/request](./packages/request/README.md)   | [Link](https://www.npmjs.com/package/@ygkit/request)  |
+| `@ygkit/object`   | [@ygkit/object](./packages/object/README.md)     | [Link](https://www.npmjs.com/package/@ygkit/object)   |
+| `@ygkit/file`     | [@ygkit/file](./packages/file/README.md)         | [Link](https://www.npmjs.com/package/@ygkit/file)     |
+| `@ygkit/bundler`  | [@ygkit/bundler](./packages/bundler/README.md)   | [Link](https://www.npmjs.com/package/@ygkit/bundler)  |
+| `@ygkit/secure`   | [@ygkit/secure](./packages/secure/README.md)     | [Link](https://www.npmjs.com/package/@ygkit/secure)   |
+| `@ygkit/password` | [@ygkit/password](./packages/password/README.md) | [Link](https://www.npmjs.com/package/@ygkit/password) |
 
 ## License
 

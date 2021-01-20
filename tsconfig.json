@@ -6,5 +6,6 @@
     { "path": "packages/file" },
     { "path": "packages/bundler" },
     { "path": "packages/secure" },
+    { "path": "packages/password" }
   ]
 }

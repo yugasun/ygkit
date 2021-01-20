@@ -13,7 +13,7 @@
     "lib": ["esnext", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "paths": {
       "*": ["typings/*", "includes/*"]
     },

@@ -1,7 +1,7 @@
 {
-  "name": "@ygkit/secure",
-  "version": "0.0.9",
-  "description": "Node secure scan tool",
+  "name": "@ygkit/password",
+  "version": "0.0.1",
+  "description": "Node password tool",
   "main": "dist/index.js",
   "node": "dist/index.js",
   "browser": "dist/index.js",
@@ -10,8 +10,7 @@
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "bin": {
-    "ygsec": "./bin/ygsec.js",
-    "ys": "./bin/ygsec.js"
+    "yp": "./bin/ypwd.js"
   },
   "publishConfig": {
     "access": "public"
@@ -21,7 +20,7 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "keywords": [
-    "secure",
+    "password",
     "ygkit"
   ],
   "author": "yugasun",
@@ -36,6 +35,10 @@
   "homepage": "https://github.com/yugasun/ygkit#readme",
   "dependencies": {
     "chalk": "^4.1.0",
-    "ora": "^5.0.0"
+    "commander": "^7.0.0",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^7.3.1"
   }
 }

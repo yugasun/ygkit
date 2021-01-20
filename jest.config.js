@@ -6,6 +6,7 @@ module.exports = {
     '<rootDir>/packages/file/src',
     '<rootDir>/packages/bundler/src',
     '<rootDir>/packages/secure/src',
+    '<rootDir>/packages/password/src',
   ],
   testTimeout: 60000,
   transform: {

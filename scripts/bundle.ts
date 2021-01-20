@@ -58,7 +58,7 @@ async function bundle() {
               composite: false,
               declaration: false,
               declarationMap: false,
-              sourceMap: true,
+              sourceMap: false,
             },
           }),
         ],
